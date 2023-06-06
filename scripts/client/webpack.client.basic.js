@@ -1,6 +1,7 @@
 const path = require("path");
 const WebpackBar = require("webpackbar");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
+const WebpackAssetsManifest = require("webpack-assets-manifest");
 
 const file_loader = require("../configs/file_loader");
 const program_loader = require("../configs/program_loader");
@@ -44,6 +45,7 @@ module.exports = {
     new WebpackBar({
       name: "编译客户端",
     }),
+    new WebpackAssetsManifest(),
     new HtmlWebpackPlugin({
       template: path.resolve(process.cwd(), "./src/application/index.html")
     })
