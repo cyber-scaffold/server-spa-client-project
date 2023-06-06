@@ -7,6 +7,7 @@ import { BasicLayout } from "@/application/layouts/BasicLayout";
 import { HomePage } from "@/application/pages/HomePage";
 import { InfoPage } from "@/application/pages/InfoPage";
 
+
 createRoot(document.getElementById("root")).render((
   <BrowserRouter>
     <BasicLayout navigations={[{ name: "主页", value: "home" }, { name: "信息页", value: "info" }]}>
