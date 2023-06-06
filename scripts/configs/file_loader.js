@@ -6,7 +6,7 @@ module.exports = [{
     options: {
       outputPath: "files",
       publicPath: "/files/",
-      name: `[name][contenthash].[ext]`
+      name: `[name][fullhash].[ext]`
     }
   }]
 }];
