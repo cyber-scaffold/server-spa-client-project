@@ -1,7 +1,7 @@
 {
   "name": "server-spa-client-project",
   "version": "1.0.0",
-  "description": "基于typescript快速启动的项目",
+  "description": "基于typescript和express的没有ssr的spa全栈项目",
   "main": "index.js",
   "scripts": {
     "dev": "cross-env NODE_ENV=local node ./scripts/development.js",
