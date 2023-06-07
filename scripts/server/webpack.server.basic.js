@@ -18,6 +18,7 @@ module.exports = {
       "@@": process.cwd(),
     }
   },
+  externalsPresets: { node: true },
   externals: [nodeExternals({
     modulesFromFile: path.resolve(process.cwd(), "./package.json")
   })],
@@ -28,8 +29,6 @@ module.exports = {
     rules: [].concat(program_loader)
   },
   plugins: [
-    new WebpackBar({
-      name: "编译服务端",
-    }),
+    new WebpackBar({ name: "编译服务端" })
   ]
 };
