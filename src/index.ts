@@ -1,6 +1,7 @@
 import path from "path";
 import express from "express";
 import bodyParser from "body-parser";
+import { DataSource } from "typeorm";
 import cookieParser from "cookie-parser";
 import history_fallback from "connect-history-api-fallback";
 
@@ -20,4 +21,5 @@ app.use(express.static(path.resolve(path.dirname(__filename), "./application/"))
 
 const server = app.listen(listen_port, "0.0.0.0", () => {
   console.log("address", server.address());
+  console.log("DataSource", DataSource);
 });
