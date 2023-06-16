@@ -49,6 +49,7 @@ module.exports = {
     new NodePolyfillPlugin(),
     new WebpackAssetsManifest(),
     new HtmlWebpackPlugin({
+      publicPath: "/",
       template: path.resolve(process.cwd(), "./src/application/index.html")
     })
   ]
