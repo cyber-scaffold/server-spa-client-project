@@ -1,5 +1,6 @@
 const path = require("path");
 const { merge } = require("webpack-merge");
+const nodeExternals = require("webpack-node-externals");
 
 const basic_server_config = require("../server/webpack.server.basic");
 

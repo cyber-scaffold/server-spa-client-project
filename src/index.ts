@@ -21,5 +21,4 @@ app.use(express.static(path.resolve(path.dirname(__filename), "./application/"))
 
 const server = app.listen(listen_port, "0.0.0.0", () => {
   console.log("address", server.address());
-  console.log("DataSource", DataSource);
 });

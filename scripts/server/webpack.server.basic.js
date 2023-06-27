@@ -1,10 +1,13 @@
 const path = require("path");
 const WebpackBar = require("webpackbar");
-const nodeExternals = require("webpack-node-externals");
 
 const program_loader = require("../configs/program_loader");
 
 module.exports = {
+  cache: {
+    type: "filesystem",
+    allowCollectingMemory: true,
+  },
   target: "node",
   devtool: "source-map",
   entry: [
