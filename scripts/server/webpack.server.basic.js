@@ -19,9 +19,6 @@ module.exports = {
     }
   },
   externalsPresets: { node: true },
-  externals: [nodeExternals({
-    modulesFromFile: path.resolve(process.cwd(), "./package.json")
-  })],
   optimization: {
     nodeEnv: false
   },
