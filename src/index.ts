@@ -5,24 +5,28 @@ import bodyParser from "body-parser";
 import cookieParser from "cookie-parser";
 import history_fallback from "connect-history-api-fallback";
 
+import { router as get_information } from "@/routes/get_information";
 import { listen_port } from "@/configs/listen_port";
+
 
 const app = express();
 app.use(cookieParser());
 app.use(bodyParser.json());
 
 /** 这里开始放路由和api接口 **/
-// app.use(...);
+app.use(get_information);
+
 
 /** SwaggerAPI文档 **/
 const filebase_dir = path.dirname(__filename);
 const swagger_file_dir = path.resolve(filebase_dir, "./statics/swagger/");
 app.use("/docs", express.static(swagger_file_dir));
-app.use("/docs/swagger.json", (request, response) => {
-  // response.send(swagger_config);
+app.use("/docs/swagger.json", async (request, response) => {
+  const dist_filename = path.resolve(filebase_dir, "./swagger_api.json");
+  response.sendFile(dist_filename);
 });
 
-/** history_fallback **/
+/** 控制单页应用的history路由 **/
 app.use(history_fallback());
 /** 这里开始提供前端渲染服务 **/
 app.use(express.static(path.resolve(path.dirname(__filename), "./application/")));

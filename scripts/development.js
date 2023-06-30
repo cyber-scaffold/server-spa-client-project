@@ -4,6 +4,7 @@ const spawn = require("cross-spawn");
 
 const client_webpack_config = require("./client/webpack.client.development");
 const server_webpack_config = require("./server/webpack.server.development");
+const generate_swagger_docs = require("./utils/generate_swagger_docs");
 
 (async () => {
   const client_compiler = webpack(client_webpack_config);
@@ -19,7 +20,7 @@ const server_webpack_config = require("./server/webpack.server.development");
 
   const process_list = [];
   /** watch服务端 **/
-  server_compiler.watch({}, (error, stats) => {
+  server_compiler.watch({}, async (error, stats) => {
     if (error) {
       console.log(error);
     } else {
@@ -28,5 +29,7 @@ const server_webpack_config = require("./server/webpack.server.development");
       const current_process = spawn("node", [path.resolve(process.cwd(), "./dist/server.js")], { stdio: "inherit" });
       process_list.push(current_process);
     };
+    await generate_swagger_docs();
   });
+
 })();
