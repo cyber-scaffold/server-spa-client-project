@@ -11,10 +11,6 @@ module.exports = {
   },
   target: "node",
   devtool: "source-map",
-  entry: [
-    "source-map-support/register",
-    path.resolve(process.cwd(), "./src/index.ts")
-  ],
   resolve: {
     extensions: [".js", ".json", ".ts", ".tsx"],
     alias: {

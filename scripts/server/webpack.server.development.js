@@ -11,6 +11,10 @@ module.exports = merge(basic_server_config, {
     path: path.resolve(process.cwd(), "./dist/"),
     filename: "server.js",
   },
+  entry: [
+    "source-map-support/register",
+    path.resolve(process.cwd(), "./src/index.ts")
+  ],
   externals: [nodeExternals({
     modulesFromFile: path.resolve(process.cwd(), "./package.json")
   })],

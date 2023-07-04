@@ -9,7 +9,7 @@ module.exports = async function generate_swagger_docs() {
     definition: {
       openapi: "3.0.0",
       info: {
-        title: "Hello World",
+        title: "SwaggerAPI文档",
         version: "1.0.0",
       },
     },
