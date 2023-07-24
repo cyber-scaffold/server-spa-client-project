@@ -11,6 +11,7 @@ const use_public_style_loader_list = require("../configs/use_public_style_loader
 module.exports = {
   cache: {
     type: "filesystem",
+    memoryCacheUnaffected: true,
     allowCollectingMemory: true,
   },
   devtool: "source-map",
