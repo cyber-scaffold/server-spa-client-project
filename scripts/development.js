@@ -24,6 +24,7 @@ const generate_swagger_docs = require("./utils/generate_swagger_docs");
       console.log(error);
     } else {
       console.log(stats.toString({ colors: true }));
+      compiler_events.emit("compiler_complate");
     };
   });
   /** watch服务端 **/
@@ -32,7 +33,7 @@ const generate_swagger_docs = require("./utils/generate_swagger_docs");
       console.log(error);
     } else {
       console.log(stats.toString({ colors: true }));
-
+      compiler_events.emit("compiler_complate");
     };
     await generate_swagger_docs();
   });
