@@ -5,7 +5,8 @@ import bodyParser from "body-parser";
 import cookieParser from "cookie-parser";
 import history_fallback from "connect-history-api-fallback";
 
-import { router as get_information } from "@/routes/get_information";
+import { router as httpGetInterface } from "@/routes/httpGetInterface";
+import { router as httpPostInterface } from "@/routes/httpPostInterface";
 import { listen_port } from "@/configs/listen_port";
 
 
@@ -14,7 +15,8 @@ app.use(cookieParser());
 app.use(bodyParser.json());
 
 /** 这里开始放路由和api接口 **/
-app.use(get_information);
+app.use(httpGetInterface);
+app.use(httpPostInterface);
 
 
 /** SwaggerAPI文档 **/
