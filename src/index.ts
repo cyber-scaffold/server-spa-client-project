@@ -7,7 +7,7 @@ import history_fallback from "connect-history-api-fallback";
 
 import { router as httpGetInterface } from "@/routes/httpGetInterface";
 import { router as httpPostInterface } from "@/routes/httpPostInterface";
-import { listen_port } from "@/configs/listen_port";
+import { listenPort } from "@/configs/listenPort";
 
 
 const app = express();
@@ -34,6 +34,6 @@ app.use(history_fallback());
 app.use(express.static(path.resolve(path.dirname(__filename), "./application/")));
 
 
-const server = app.listen(listen_port, "0.0.0.0", () => {
+const server = app.listen(listenPort, "0.0.0.0", () => {
   console.log("address", server.address());
 });

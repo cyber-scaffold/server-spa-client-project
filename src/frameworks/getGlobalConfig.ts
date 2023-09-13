@@ -3,13 +3,13 @@ import path from "path";
 import isDocker from "is-docker";
 import { readFileSync } from "jsonfile";
 
-export function get_global_config() {
+export function getGlobalConfig() {
 
   let global_config_path;
 
   if (isDocker()) {
 
-    global_config_path = path.resolve("/home/", "./runtime_config.json")
+    global_config_path = path.join("/etc/", "/application/", "./runtime_config.json")
 
   } else {
 
