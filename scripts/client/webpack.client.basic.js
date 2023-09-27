@@ -9,11 +9,6 @@ const program_loader = require("../configs/program_loader");
 const use_public_style_loader_list = require("../configs/use_public_style_loader_list");
 
 module.exports = {
-  cache: {
-    type: "filesystem",
-    memoryCacheUnaffected: true,
-    allowCollectingMemory: true,
-  },
   devtool: "source-map",
   entry: path.resolve(process.cwd(), "./src/application/index.tsx"),
   resolve: {
