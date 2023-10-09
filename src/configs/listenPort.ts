@@ -1,8 +1,6 @@
-
+import { getGlobalConfig } from "@/frameworks/getGlobalConfig";
 
 export const listenPort = (() => {
-  if (process.env.NODE_ENV === "local") {
-    return 18090;
-  };
-  return 28090;
+  const globalConfig = getGlobalConfig();
+  return globalConfig.server.port;
 })();
