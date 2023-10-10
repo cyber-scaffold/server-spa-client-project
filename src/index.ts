@@ -8,7 +8,7 @@ import history_fallback from "connect-history-api-fallback";
 import { router as httpGetInterface } from "@/routes/httpGetInterface";
 import { router as httpPostInterface } from "@/routes/httpPostInterface";
 import { listenPort } from "@/configs/listenPort";
-
+import { AppDataSource } from "@/frameworks/AppDataSource";
 
 const app = express();
 app.use(cookieParser());
@@ -34,6 +34,12 @@ app.use(history_fallback());
 app.use(express.static(path.resolve(path.dirname(__filename), "./application/")));
 
 
-const server = app.listen(listenPort, "0.0.0.0", () => {
-  console.log("address", server.address());
+const server = app.listen(listenPort, "0.0.0.0", async () => {
+  try {
+    await AppDataSource.initialize();
+    console.log("address", server.address());
+  } catch (error) {
+    console.log(error);
+    process.exit(0);
+  };
 });
