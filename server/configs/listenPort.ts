@@ -1,4 +1,4 @@
-import { getGlobalConfig } from "@/resources/getGlobalConfig";
+import { getGlobalConfig } from "&/resources/getGlobalConfig";
 
 export const listenPort = (() => {
   const globalConfig = getGlobalConfig();

@@ -1,7 +1,7 @@
 import { DataSource } from "typeorm";
 
 
-import { getGlobalConfig } from "@/resources/getGlobalConfig";
+import { getGlobalConfig } from "&/resources/getGlobalConfig";
 
 const globalConfig = getGlobalConfig();
 

@@ -10,7 +10,7 @@ const use_public_style_loader_list = require("../configs/use_public_style_loader
 
 module.exports = {
   devtool: "source-map",
-  entry: path.resolve(process.cwd(), "./src/application/index.tsx"),
+  entry: path.resolve(process.cwd(), "./src/index.tsx"),
   resolve: {
     extensions: [".js", ".json", ".ts", ".tsx"],
     alias: {
@@ -50,7 +50,7 @@ module.exports = {
     new WebpackAssetsManifest(),
     new HtmlWebpackPlugin({
       publicPath: "/",
-      template: path.resolve(process.cwd(), "./src/application/index.html")
+      template: path.resolve(process.cwd(), "./src/index.html")
     })
   ]
 };

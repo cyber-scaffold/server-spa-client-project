@@ -13,7 +13,7 @@ module.exports = merge(basic_server_config, {
   },
   entry: [
     "source-map-support/register",
-    path.resolve(process.cwd(), "./src/index.ts")
+    path.resolve(process.cwd(), "./server/index.ts")
   ],
   externals: [nodeExternals({
     modulesFromFile: path.resolve(process.cwd(), "./package.json")
