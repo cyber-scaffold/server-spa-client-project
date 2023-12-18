@@ -1,16 +1,18 @@
 import path from "path";
 import express from "express";
-import bodyParser from "body-parser";
-// import { DataSource } from "typeorm";
-import cookieParser from "cookie-parser";
 import history_fallback from "connect-history-api-fallback";
+import { createProxyMiddleware } from "http-proxy-middleware";
 
 import { listenPort } from "&/configs/listenPort";
-// import { AppDataSource } from "&/resources/AppDataSource";
+import { getGlobalConfig } from "&/resources/getGlobalConfig";
 
 const app = express();
-app.use(cookieParser());
-app.use(bodyParser.json());
+const { proxy } = getGlobalConfig();
+
+/** 启动反向代理 **/
+Object.keys(proxy).forEach((proxyRuleName) => {
+  app.use(createProxyMiddleware(proxyRuleName, proxy[proxyRuleName]));
+});
 
 /** 控制单页应用的history路由 **/
 app.use(history_fallback());
@@ -19,7 +21,6 @@ app.use(express.static(path.resolve(path.dirname(__filename), "./application/"))
 
 const server = app.listen(listenPort, "0.0.0.0", async () => {
   try {
-    // await AppDataSource.initialize();
     console.log("address", server.address());
   } catch (error) {
     console.log(error);
