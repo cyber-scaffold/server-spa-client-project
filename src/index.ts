@@ -8,7 +8,7 @@ import history_fallback from "connect-history-api-fallback";
 import { router as httpGetInterface } from "@/routes/httpGetInterface";
 import { router as httpPostInterface } from "@/routes/httpPostInterface";
 import { listenPort } from "@/configs/listenPort";
-import { AppDataSource } from "@/frameworks/AppDataSource";
+import { AppDataSource } from "@/resources/AppDataSource";
 
 const app = express();
 app.use(cookieParser());
