@@ -2,10 +2,10 @@ import React from "react";
 import { createRoot } from "react-dom/client";
 import { BrowserRouter, Route } from "react-router-dom";
 
-import { KeepAlive } from "@//components/KeepAlive";
-import { BasicLayout } from "@//layouts/BasicLayout";
-import { HomePage } from "@//pages/HomePage";
-import { InfoPage } from "@//pages/InfoPage";
+import { KeepAlive } from "@/components/KeepAlive";
+import { BasicLayout } from "@/layouts/BasicLayout";
+import { HomePage } from "@/pages/HomePage";
+import { InfoPage } from "@/pages/InfoPage";
 
 
 createRoot(document.getElementById("root")).render((
