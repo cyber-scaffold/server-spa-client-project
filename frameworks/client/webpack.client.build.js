@@ -8,6 +8,6 @@ module.exports = merge(basic_client_config, {
   output: {
     clean: true,
     path: path.resolve(process.cwd(), "./dist/application/"),
-    filename: "application.[hash].js",
+    filename: "application.[fullhash].js",
   }
 });
