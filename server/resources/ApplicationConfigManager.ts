@@ -8,7 +8,8 @@ export class ApplicationConfigManager {
 
   /** 应用层内置的默认配置 **/
   private defaultConfig: any = {
-    port: 25897
+    port: 25897,
+    proxy: {}
   };
 
   /** 操作系统层的配置 **/
