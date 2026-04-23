@@ -2,7 +2,7 @@ import { injectable, inject } from "inversify";
 
 import { IOCContainer } from "@/frameworks/spa-build-tool/cores/IOCContainer";
 import { FrameworkConfigManager } from "@/frameworks/spa-build-tool/commons/FrameworkConfigManager";
-import { setCompileConfiguration, makeHydrationResource, makeDehydratedResource } from "@/frameworks/spa-tool-box/compilation";
+import { setCompileConfiguration, makeHydrationResource, makeDehydratedResource } from "@/frameworks/react-ssr-tool-box/compilation";
 
 
 /**

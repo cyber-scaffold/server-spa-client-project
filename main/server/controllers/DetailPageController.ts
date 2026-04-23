@@ -23,7 +23,7 @@ export class DetailPageController {
   /** 路由的业务逻辑 **/
   public async execute(request: Request): Promise<string> {
     return await this.$ServerSiderRenderService.computedHTMLContent({
-      alias: "DetailPage",
+      alias: "Application",
       title: "详情页",
       keywords: [],
       description: "这是详情页",

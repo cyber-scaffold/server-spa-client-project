@@ -23,7 +23,7 @@ export class UserPageController {
   /** 路由的业务逻辑 **/
   public async execute(request: Request): Promise<string> {
     return await this.$ServerSiderRenderService.computedHTMLContent({
-      alias: "UserPage",
+      alias: "Application",
       title: "用户中心",
       keywords: [],
       description: "",

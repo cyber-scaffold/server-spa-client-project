@@ -26,7 +26,7 @@ export class SearchController {
     console.log("request.body", request.body);
     const content = { list: Array(10).fill(1) };
     return await this.$ServerSiderRenderService.computedHTMLContent({
-      alias: "SearchPage",
+      alias: "Application",
       title: "搜索结果页",
       keywords: [],
       description: "",

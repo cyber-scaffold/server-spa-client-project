@@ -24,7 +24,7 @@ export class IndexPageController {
   public async execute(request: Request): Promise<string> {
     const content = { list: Array(10).fill(1).map((fill, index) => fill + index) };
     return await this.$ServerSiderRenderService.computedHTMLContent({
-      alias: "IndexPage",
+      alias: "Application",
       title: "主页",
       keywords: [],
       description: "",
