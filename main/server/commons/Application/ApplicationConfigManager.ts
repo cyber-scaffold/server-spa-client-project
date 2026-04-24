@@ -10,7 +10,7 @@ import { IOCContainer } from "@/main/server/cores/IOCContainer";
 export class ApplicationConfigManager {
 
   private server = {
-    port: 8190
+    port: 15200
   };
 
   private redis = {

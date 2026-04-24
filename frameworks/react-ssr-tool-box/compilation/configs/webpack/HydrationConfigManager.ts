@@ -67,7 +67,7 @@ export class HydrationConfigManager {
         ])).flat()
       },
       plugins: [
-        // new WebpackBar({ name: "制作注水物料" }),
+        new WebpackBar({ name: "制作注水物料" }),
         // new NodePolyfillPlugin(),
         // new DllReferencePlugin({
         //   manifest: path.resolve(assetsDirectoryPath, "./dll/hydration.dll.json")

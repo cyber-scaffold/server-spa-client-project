@@ -82,7 +82,7 @@ export class DehydrationConfigManager {
         ])).flat()
       },
       plugins: [
-        // new WebpackBar({ name: "制作脱水物料" }),
+        new WebpackBar({ name: "制作脱水物料" }),
         new CompilerProgressPlugin({
           type: "dehydration",
           materielResourceDatabaseManager: this.$CompilationMaterielResourceDatabaseManager

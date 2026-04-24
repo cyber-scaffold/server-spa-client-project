@@ -4,6 +4,7 @@ import { IOCContainer } from "@/main/server/cores/IOCContainer";
 import { ApplicationConfigManager } from "@/main/server/commons/Application/ApplicationConfigManager";
 import { ExpressHttpServer } from "@/main/server/commons/Application/ExpressHttpServer";
 
+
 setImmediate(async () => {
   /**
    * 为运行时的物料管理库提供 项目目录的绝对路径

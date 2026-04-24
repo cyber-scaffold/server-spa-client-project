@@ -6,6 +6,10 @@ import { materielsConfigTransformer } from "@/frameworks/react-ssr-tool-box/comp
 
 import type { MaterielInfoByAliasDictionaryType } from "@/frameworks/react-ssr-tool-box/compilation/utils/materielsConfigTransformer";
 
+export type MaterielPairsType = [alias: string, detail: MaterielCompilationInfoType][];
+
+export type PresetPairsType = [virtualModuleName: string, virtualModuleContent: string][];
+
 export type MaterielRenderType = {
   hydrate: boolean
   dehydrate: boolean
@@ -31,6 +35,8 @@ export interface CompilationConfigType {
   dehydrationResourceDirectoryPath: string
   dehydrateIncludePackageList?: string[]
   dehydrateExcludePackageList?: string[]
+  dehydrationPreset: (materielPairs: MaterielPairsType) => Promise<PresetPairsType>
+  hydrationPreset: (materielPairs: MaterielPairsType) => Promise<PresetPairsType>
   materielArrayList: MaterielCompilationInfoType[]
 };
 
@@ -42,6 +48,8 @@ export interface CustmerInputCompilationConfigType {
   dehydrationResourceDirectoryName?: string
   dehydrateIncludePackageList?: string[]
   dehydrateExcludePackageList?: string[]
+  dehydrationPreset: (materielPairs: MaterielPairsType) => Promise<PresetPairsType>
+  hydrationPreset: (materielPairs: MaterielPairsType) => Promise<PresetPairsType>
   materiels?: MaterielCompilationInfoType[]
 };
 
@@ -120,6 +128,9 @@ export class CompilationConfigManager {
    * **/
   private dehydrateExcludePackageList: string[] = [];
 
+  private dehydrationPreset: (materielPairs: MaterielPairsType) => Promise<PresetPairsType>;
+
+  private hydrationPreset: (materielPairs: MaterielPairsType) => Promise<PresetPairsType>;
 
   /** 基于用户的配置合并覆盖掉原来的属性然后重新计算一遍 **/
   public async initialize(inputCustmerConfig: CustmerInputCompilationConfigType) {
@@ -144,6 +155,12 @@ export class CompilationConfigManager {
     if (inputCustmerConfig.dehydrateExcludePackageList) {
       this.dehydrateExcludePackageList = inputCustmerConfig.dehydrateExcludePackageList;
     };
+    if (inputCustmerConfig.dehydrationPreset) {
+      this.dehydrationPreset = inputCustmerConfig.dehydrationPreset;
+    };
+    if (inputCustmerConfig.hydrationPreset) {
+      this.hydrationPreset = inputCustmerConfig.hydrationPreset;
+    };
     if (inputCustmerConfig.materiels) {
       const { hydrate, dehydrate } = materielsConfigTransformer(inputCustmerConfig.materiels);
       this.dehydrateDictionary = dehydrate;
@@ -167,6 +184,8 @@ export class CompilationConfigManager {
       dehydrateExcludePackageList: this.dehydrateExcludePackageList,
       dehydrateDictionary: this.dehydrateDictionary,
       hydrateDictionary: this.hydrateDictionary,
+      dehydrationPreset: this.dehydrationPreset,
+      hydrationPreset: this.hydrationPreset,
       materielArrayList: this.materielArrayList
     };
   };

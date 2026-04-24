@@ -10,7 +10,7 @@ module.exports = {
     {
       alias: "Application",
       hydrate: true,
-      dehydrate: false,
+      dehydrate: true,
       source: path.resolve(process.cwd(), "./main/views/index.tsx")
     }
   ]
