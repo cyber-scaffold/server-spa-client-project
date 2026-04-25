@@ -1,4 +1,4 @@
-import type { MaterielCompilationInfoType } from "@/frameworks/react-ssr-tool-box/compilation/commons/CompilationConfigManager";
+import type { MaterielCompilationInfoType } from "@/frameworks/react-ssr-tool-box/compilation";
 
 export type PublicPathWithRuntimeType = "/hydration/" | "/dehydration/";
 
